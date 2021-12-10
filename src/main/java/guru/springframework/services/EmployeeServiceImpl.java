@@ -9,6 +9,8 @@ import guru.springframework.domain.Employee;
 import guru.springframework.domain.Greeting;
 import guru.springframework.repositories.EmployeeRepository;
 import guru.springframework.repositories.GreetingRepository;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -100,8 +102,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         actionmap.put("id", id);
         Random rand = new Random(); //instance of random class
         int x = rand.nextInt(1000);
-        
-        actionmap.put("message", "Message pour "+name+" ayant comme identifiant "+id+" : "+xd);
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String now_f = dtf.format(now);
+        actionmap.put("message",now_f+" : "+xd);
         log.info("Sending the index request through queue message");
         
        

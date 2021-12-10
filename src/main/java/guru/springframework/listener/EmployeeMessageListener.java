@@ -6,6 +6,9 @@ import org.springframework.stereotype.Component;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.Map;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextPane;
 
 /**
  * This is the queue listener class, its receiveMessage() method ios invoked with the
@@ -36,8 +39,15 @@ public class EmployeeMessageListener {
         employee.setMessageReceived(true);
         employee.setMessageCount(employee.getMessageCount() + 1);
         System.out.println(msg);
-
+        String msg_r=employee.getMsg_recu();
+        System.out.println(msg_r);
+        if (msg_r== null || msg_r.length()==0 ){
+            msg_r="";
+        }
+        String msg_rn=msg_r+ " | " +msg;
+        employee.setMsg_recu(msg_rn);
         employeeRepository.save(employee);
         log.info("Message processed...");
+        
     }
 }

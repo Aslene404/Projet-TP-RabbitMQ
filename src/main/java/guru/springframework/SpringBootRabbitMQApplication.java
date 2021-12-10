@@ -1,6 +1,8 @@
 package guru.springframework;
 
 import guru.springframework.listener.EmployeeMessageListener;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
@@ -48,6 +50,9 @@ public class SpringBootRabbitMQApplication {
 	}
 
 	public static void main(String[] args) {
+            
+        
+            
 		SpringApplication.run(SpringBootRabbitMQApplication.class, args);
 	}
 }

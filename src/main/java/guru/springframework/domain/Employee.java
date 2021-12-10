@@ -20,6 +20,15 @@ public class Employee {
     private String rank;
     private boolean messageReceived;
     private Integer messageCount = 0; //init to zero
+    private String msg_recu;
+
+    public String getMsg_recu() {
+        return msg_recu;
+    }
+
+    public void setMsg_recu(String msg_recu) {
+        this.msg_recu = msg_recu;
+    }
 
     public Long getId() {
         return id;
