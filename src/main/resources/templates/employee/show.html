@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Core Online Tutorial - Show Product</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Show Employees</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Employee Id:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${employee.id}">Employee Id</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Fullname:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${employee.fullname}">Fullname</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Salary:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${employee.salary}">Salary</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Departement:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${employee.departement}">Departement</p>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Rank:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${employee.rank}">Rank</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Are Messages Sent:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${employee.messageReceived}">Are Messages Sent</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Message Count:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${employee.messageCount}">5</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <form class="form-horizontal" th:object="${greetingForm}" th:action="@{/employee/indexEmployee/{employeeId}/(employeeId = ${employee.id})}" method="get">
+
+            
+                <label class="col-sm-2 control-label">Message :</label>
+                <div class="col-sm-10">
+                    <input type="text" field="*{content}" name="content"/>
+
+                    
+                </div>
+            </div>
+
+            
+            <div class="row">
+                <button type="submit" class="btn btn-default">Envoyer</button>
+            </div>
+        </form>
+        
+    </div>
+</div>
+
+</body>
+</html>
